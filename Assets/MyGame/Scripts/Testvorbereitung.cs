@@ -5,6 +5,7 @@ using UnityEngine;
 public class Testvorbereitung : MonoBehaviour
 {
     private bool isTrueExpression = true;
+    public GameObject[] myGOs;
 
     //Alte Testvorbereitung +
     //If-Statements
@@ -13,7 +14,14 @@ public class Testvorbereitung : MonoBehaviour
 
     private void Start()
     {
-        
+        //PrintBools();
+        //Fors();
+        Arrays();
+
+        for(int i = 0; i< myGOs.Length; i++)
+        {
+            myGOs[i].gameObject.transform.position = new Vector3(3f, 3f, 3f);
+        }
     }
 
     void IfStatements()
@@ -42,23 +50,62 @@ public class Testvorbereitung : MonoBehaviour
         
     }
 
-    bool a1 = true;
+    bool a1 = false;
     bool a2 = true;
     bool a3 = true; 
 
     void PrintBools()
     {
-        if (a1 && a2 || a3)
+        if (a1 || a2 && a3)
         {
             Debug.Log("a1 && a2 || a3");
         }
 
-        if (a1 && (a2 || a3))
+        if (a1 || (a2 && a3))
         {
             Debug.Log("a1 && (a2 || a3)");
         }
     }
 
+    void Fors()
+    {
+        for(int i = 0; i < 20; i++)
+        {
+            if (i % 2 == 0)
+            {
+                Debug.Log(i);
+            }
 
+        }
+
+        for (int i = 20; i >= 0 ; i--)
+        {
+            if (i % 2 == 0)
+            {
+                Debug.Log(i);
+            }
+
+        }
+    }
+
+    void Arrays()
+    {
+        int[] x = new int[7];
+
+        for(int i = 0; i < x.Length; i++)
+        {
+            x[i] = 5;
+        }
+
+        PrintMyArray(x);
+    }
+
+    void PrintMyArray(int[] y)
+    {
+        for(int i = 0; i < y.Length; i++)
+        {
+            Debug.Log(y[i]);
+        }
+    }
 
 }
